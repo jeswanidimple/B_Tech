@@ -26,7 +26,7 @@ public class RunServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int result = 0;
+		int result;
 		
 		response.setContentType("text/plain");
 		
@@ -40,15 +40,11 @@ public class RunServlet extends HttpServlet {
 	    
 		ServerClass.fetchdetails(Long.parseLong(cardnum),city,Integer.parseInt(amount));
 	    
-	    out.println("GOOD : fetchdetails is working");
-	    System.out.println("GOOD : fetchdetails is called");
+	    out.println("GOOD : userdetails Set");
+	    System.out.println("GOOD : userdetails Set");
 	        	     
 	    String[] arg = {};
 	    result = ServerClass.main(arg);
-	    
-	    out.println("Card Number : " + cardnum);
-	    out.println("City : " + city);
-	    out.println("Amount : " + amount);
 	    
 	    if(result == 0)
 	    	out.println("Processing Transaction");
@@ -62,22 +58,4 @@ public class RunServlet extends HttpServlet {
 		
 		doGet(request, response);
 	}
-/*
-	*//**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 *//*
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Received Details Successfully");
-	}
-
-	*//**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 *//*
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-
-
-*/
 }

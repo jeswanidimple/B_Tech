@@ -11,27 +11,27 @@ public class ServerClass {
 			userdetail.setCardNumber(cardnum);
 			userdetail.setCity(city);
 			userdetail.setAmount(amount);
-			System.out.println("Setting Values");
-			System.out.println("Card Number : " + userdetail.getCardNumber());
-			System.out.println("City : " + userdetail.getCity());
-			System.out.println("Amount : " + userdetail.getAmount());
-			System.out.println("Initial Max Limit : " + userdetail.getMaxLimit());
 	}
 
 	public static int main(String[] args) {
 		// TODO Auto-generated method stub
+			
+		System.out.println("Card Number : " + userdetail.getCardNumber());
+		System.out.println("City : " + userdetail.getCity());
+		System.out.println("Amount : " + userdetail.getAmount());
+		System.out.println("Initial Max Limit : " + userdetail.getMaxLimit());
 		
-			new DroolsTest().ApplyRule(userdetail);
-			int maxlimit = userdetail.getMaxLimit();
-			System.out.println("Maximum limit set to - " + maxlimit);
+		new DroolsTest().RunDrools(userdetail);
+			
+		System.out.println("Maximum limit set to - " + userdetail.getMaxLimit());
 		
-			//Validating the transaction
+		//Validating the transaction
 		
-			if(userdetail.getAmount() > maxlimit) {
-				return 1;
-			}
-			else {
-				return 0;
-			}		
+		if(userdetail.getAmount() > userdetail.getMaxLimit()) {
+			return 1;
+		}
+		else {
+			return 0;
+		}		
 	}
 }

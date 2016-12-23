@@ -12,6 +12,7 @@ rule "Metropolitan City"
     	transaction : TransactionDetails(Arrays.asList(MetroCities).contains(city.toLowerCase()));
     then
     	transaction.setMaxLimit(5000);
+    	System.out.println("Transaction Limit = 5000");
 end
 
 rule "Non-Metropolitan City"
@@ -19,4 +20,5 @@ rule "Non-Metropolitan City"
     	transaction : TransactionDetails(!Arrays.asList(MetroCities).contains(city.toLowerCase()))
     then
         transaction.setMaxLimit(3000);
+		System.out.println("Transaction Limit = 3000");
 end
