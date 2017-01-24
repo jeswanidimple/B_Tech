@@ -6,6 +6,7 @@ public class TransactionDetails {
 	private String city;
 	private int amount;
 	private int maxlimit;
+	private int year;
 	public static String MetroCities[] = {"mumbai","pune","banglore","delhi","kolkata","guwhati","chennai"};
 
     public String getCity() {
@@ -32,4 +33,11 @@ public class TransactionDetails {
     public void setMaxLimit(int maxlimit) {
     	this.maxlimit = maxlimit;
     }
+    public int getYear() {
+    	return year;
+    }
+    public void setYear(int year) {
+    	this.year = year;
+    }
+    
 }

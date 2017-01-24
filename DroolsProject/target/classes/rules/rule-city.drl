@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.ArrayList;
  
 dialect "java"
- 
+salience 10
+
 rule "Metropolitan City"
     when
     	transaction : TransactionDetails(Arrays.asList(MetroCities).contains(city.toLowerCase()));

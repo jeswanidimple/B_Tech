@@ -1,0 +1,30 @@
+//created on: Jan 23, 2017
+package TransactionRules
+
+//list any import classes here.
+import com.sample.TransactionDetails;
+import java.util.Scanner;
+
+//declare any global variables here
+dialect "java"
+salience 20
+
+rule "Invalid Year"
+
+    when
+        //conditions
+        transaction : TransactionDetails(year < 2000)
+    then
+        //actions
+        System.out.println("Transaction is Old");
+end
+
+rule "Valid Year"
+    //include attributes such as "salience" here...
+    when
+        //conditions
+        transaction : TransactionDetails(year >= 2000)
+    then
+        //actions
+		System.out.println("Transaction is New");
+end
