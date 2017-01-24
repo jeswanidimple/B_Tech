@@ -6,15 +6,16 @@ public class ServerClass {
 
 	public static TransactionDetails userdetail = new TransactionDetails();
 	
-	public static void fetchdetails(long cardnum, String city, int amount)
+	public static void fetchdetails(long cardnum, String city, int amount, int year)
 	{
-			userdetail.setCardNumber(cardnum);
-			userdetail.setCity(city);
-			userdetail.setAmount(amount);
-			//VJ: This was missing
-			new DroolsTest().RunDrools(userdetail);
+		userdetail.setCardNumber(cardnum);
+		userdetail.setCity(city);
+		userdetail.setAmount(amount);
+		userdetail.setYear(year);
+		//VJ: This was missing
+		new DroolsTest().RunDrools(userdetail);
 	}
-
+/*
 	public static int main(String[] args) {
 		System.out.println("Card Number : " + userdetail.getCardNumber());
 		System.out.println("City : " + userdetail.getCity());
@@ -34,4 +35,5 @@ public class ServerClass {
 			return 0;
 		}		
 	}
+*/
 }

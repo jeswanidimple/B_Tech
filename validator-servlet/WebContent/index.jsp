@@ -8,15 +8,21 @@
 <table>
 	<tr>
 		<td>Card Number</td>
-		<td><input type="text"  name="cardnum"/></td>
+		<td><input type="text"  name="cardnum"	maxlength="16"
+		onkeypress="return event.charCode > 47 && event.charCode < 58;"> </td>		
 	</tr>
 	<tr>
-		<td>Amout</td>
-		<td><input type="text"  name="amount"/></td>
+		<td>Amount</td>
+		<td><input type="text"  name="amount"
+		onkeypress="return event.charCode > 47 && event.charCode < 58;"> </td>
 	</tr>
 	<tr>
 		<td>City</td>
 		<td><input type="text"  name="city"/></td>
+	</tr>
+	<tr>
+		<td>Year</td>
+		<td><input type="text"  name="year"/></td>
 	</tr>
 	<tr><td></td><td></td></tr>
 	<tr>
