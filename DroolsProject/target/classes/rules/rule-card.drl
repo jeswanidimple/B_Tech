@@ -1,0 +1,42 @@
+//created on: Jan 24, 2017
+package TransactionRules
+
+//list any import classes here.
+import com.sample.TransactionDetails;
+import java.lang.Math;
+import java.util.Scanner;
+
+//declare any global variables here
+dialect "java"
+salience 50
+
+rule "Valid Card Number"
+//no-loop
+lock-on-active 
+    when
+        //conditions
+        transaction : TransactionDetails(String.valueOf(cardNum).length() == 6)
+    then
+        //actions
+		transaction.setFScore(0);
+		update(transaction)
+			System.out.println("fscore in card.drl after rule is applied "+transaction.getFScore());
+			System.out.println("Valid Card Number");
+end
+
+rule "Invalid Card Number"
+//no-loop
+  lock-on-active 
+    //include attributes such as "salience" here...
+    when
+        //conditions
+         //VJ: This condition was stated with 'cardnum' which was causing problem to load the rule
+        transaction : TransactionDetails(String.valueOf(cardNum).length() != 6)
+    then
+        //actions
+        transaction.setFScore(100);
+        update(transaction)
+			System.out.println("fscore in card.drl after rule is applied "+transaction.getFScore());
+			System.out.println("Invalid Card Number");
+
+end

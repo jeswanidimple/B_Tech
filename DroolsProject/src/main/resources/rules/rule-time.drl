@@ -1,0 +1,35 @@
+//created on: Feb 5, 2017
+package TransactionRules
+
+import com.sample.TransactionDetails;
+import java.util.Scanner;
+import java.util.Date;
+
+dialect "java"
+salience 15
+ 
+rule "Invalid Time"
+lock-on-active
+    when
+        //conditions
+        transaction : TransactionDetails(fScore != 100, new Date().getTime() >= (time + 30000))
+    then
+        //actions
+       // modify(transaction)  {setFScore(0)};
+       transaction.setFScore(100);
+       update(transaction)
+        System.out.println("fscore in time.drl after rule is applied "+transaction.getFScore());
+        //System.out.println("time in time.drl  "+transaction.getTime()
+     //   System.out.println("time now in time.drl " + new Date().getTime());
+        System.out.println("Time elapsed");
+end
+
+rule "Valid Time"
+lock-on-active
+    when
+        //conditions
+        transaction : TransactionDetails( fScore != 100, new Date().getTime() < (time + 30000))
+    then
+        System.out.println("fscore time.drl after rule is applied "+transaction.getFScore());
+       // System.out.println("time now in time.drl okay " + new Date().getTime());
+end

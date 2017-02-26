@@ -1,0 +1,50 @@
+//created on: Feb 6, 2017
+package TransactionRules
+
+import com.sample.TransactionDetails;
+salience 9
+
+rule "Diff 1"
+lock-on-active
+    when
+		transaction : TransactionDetails( fScore != 100 , amount > maxLimit  )
+	then
+		transaction.setFScore(25);
+        update(transaction)
+        System.out.println("fscore in diff.drl diff 1  "+transaction.getFScore());
+end
+
+rule "Diff 2"
+lock-on-active
+    when
+		transaction : TransactionDetails(fScore != 100 , amount > (2 * maxLimit))
+    then
+        //actions
+        transaction.setFScore(35);
+        update(transaction)
+        System.out.println("fscore in diff.drl diff 2  "+transaction.getFScore());
+
+end
+
+rule "Diff 3"
+lock-on-active
+    when
+		transaction : TransactionDetails(fScore != 100 , amount > (3 * maxLimit) )
+	then
+        //actions
+        transaction.setFScore(45);
+        update(transaction)
+        System.out.println("fscore in diff.drl diff 3  "+transaction.getFScore());
+
+end
+
+rule "Diff 4"
+lock-on-active
+    when
+		transaction : TransactionDetails( fScore != 100 , amount > (4 * maxLimit) )
+    then
+        //actions
+	    transaction.setFScore(100);
+        update(transaction)
+        System.out.println("fscore in diff.drl diff 4  "+transaction.getFScore());
+end

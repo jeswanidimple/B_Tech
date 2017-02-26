@@ -2,7 +2,9 @@ package net.finpro.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.annotation.WebServlet;
@@ -24,32 +26,28 @@ public class RunServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-	//	int result;
-		
-		response.setContentType("text/plain");
+		response.setContentType("text/html");
 		
 		String cardnum = request.getParameter("cardnum");
 		String city = request.getParameter("city");
 	    String amount = request.getParameter("amount");
 	    String year = request.getParameter("year");
 	    
-	    PrintWriter out = response.getWriter();
-	    out.println("GOOD : servlet is accepting data from jsp");
-	    System.out.println("GOOD : servlet is accepting data from jsp. City: " + city);
+	    String time = request.getParameter("time");
+
+	      /*getTime():It returns the number of milliseconds since 
+	       * January 1, 1970, 00:00:00 GMT 
+	       * represented by this date.
+	       */
+		int FRate = ServerClass.fetchdetails(Long.parseLong(cardnum),city,Integer.parseInt(amount),Integer.parseInt(year), Long.parseLong(time));
 	    
-		ServerClass.fetchdetails(Long.parseLong(cardnum),city,Integer.parseInt(amount),Integer.parseInt(year));
-	    
-	    out.println("GOOD : userdetails Set");
-	    System.out.println("GOOD : userdetails Set");
-	        	     
-//	    String[] arg = {};
-//	    result = ServerClass.main(arg);
-	    
-//	    if(result == 0)
-//	    	out.println("Processing Transaction");
-//	    else if(result == 1)
-//	    	out.println("Transaction Limit Exceeded");
-//   
+	    PrintWriter writer = response.getWriter();
+        String htmlRespone = "<html>";
+        htmlRespone += "<h2>Fraud Rate is: " + FRate +"</h2>";    
+        htmlRespone += "</html>";
+         
+        // return response
+        writer.println(htmlRespone);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

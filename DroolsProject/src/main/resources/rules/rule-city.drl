@@ -9,17 +9,21 @@ dialect "java"
 salience 10
 
 rule "Metropolitan City"
+lock-on-active
     when
-    	transaction : TransactionDetails(Arrays.asList(MetroCities).contains(city.toLowerCase()));
+    	transaction : TransactionDetails(fScore != 100, Arrays.asList(MetroCities).contains(city.toLowerCase()))
     then
     	transaction.setMaxLimit(5000);
+    	update(transaction)
     	System.out.println("Transaction Limit = 5000");
 end
 
 rule "Non-Metropolitan City"
+lock-on-active
     when
-    	transaction : TransactionDetails(!Arrays.asList(MetroCities).contains(city.toLowerCase()))
+    	transaction : TransactionDetails(fScore != 100 , !Arrays.asList(MetroCities).contains(city.toLowerCase()))
     then
         transaction.setMaxLimit(3000);
+        update(transaction)
 		System.out.println("Transaction Limit = 3000");
 end
