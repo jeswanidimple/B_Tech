@@ -19,8 +19,8 @@ lock-on-active
        // modify(transaction)  {setFScore(0)};
        transaction.setFScore(100);
        update(transaction)
-        System.out.println("fscore in year.drl after rule is applied "+transaction.getFScore());
-        System.out.println("Transaction is Old");
+      //  System.out.println("fscore in year.drl after rule is applied "+transaction.getFScore());
+     //   System.out.println("Transaction is Old");
 end
 
 rule "Valid Year"
@@ -30,7 +30,7 @@ lock-on-active
         //conditions
         transaction : TransactionDetails( fScore != 100, year >= 2000)
     then
-        System.out.println("fscore in year.drl after rule is applied "+transaction.getFScore());
-		System.out.println("Transaction is New");
+    //    System.out.println("fscore in year.drl after rule is applied "+transaction.getFScore());
+	//	System.out.println("Transaction is New");
 end
 

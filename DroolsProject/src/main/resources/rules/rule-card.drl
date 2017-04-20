@@ -20,13 +20,13 @@ lock-on-active
         //actions
 		transaction.setFScore(0);
 		update(transaction)
-			System.out.println("fscore in card.drl after rule is applied "+transaction.getFScore());
-			System.out.println("Valid Card Number");
+		//	System.out.println("fscore in card.drl after rule is applied "+transaction.getFScore());
+		//	System.out.println("Valid Card Number");
 end
 
 rule "Invalid Card Number"
 //no-loop
-  lock-on-active 
+ lock-on-active 
     //include attributes such as "salience" here...
     when
         //conditions
@@ -36,7 +36,7 @@ rule "Invalid Card Number"
         //actions
         transaction.setFScore(100);
         update(transaction)
-			System.out.println("fscore in card.drl after rule is applied "+transaction.getFScore());
-			System.out.println("Invalid Card Number");
+		//	System.out.println("fscore in card.drl after rule is applied "+transaction.getFScore());
+		//	System.out.println("Invalid Card Number");
 
 end

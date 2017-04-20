@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	 background-image: url("fraud4.jpg");
+	 background-color: #cce6ff;
+}
+#divout {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    padding: 10px;
+    font-size : 20px;
+}
+table
+{ 
+    margin-left: auto;
+    margin-right: auto;
+}
+tr {
+	padding: 40px;
+	cellspacing:10;
+}
+
+input , select {
+	width:170px;
+	
+}

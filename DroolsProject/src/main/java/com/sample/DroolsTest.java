@@ -29,8 +29,11 @@ public class DroolsTest {
 			
 			System.out.println("Calling .drl");
 			kfs.write(ResourceFactory.newClassPathResource("rules/rule-city.drl", this.getClass()));
-						
-        	KieBuilder kb = ks.newKieBuilder(kfs);
+			kfs.write(ResourceFactory.newClassPathResource("rules/rule-year.drl", this.getClass()));
+			kfs.write(ResourceFactory.newClassPathResource("rules/rule-card.drl", this.getClass()));
+			//kfs.write(ResourceFactory.newClassPathResource("rules/rule-card.drl", this.getClass()));
+			
+			KieBuilder kb = ks.newKieBuilder(kfs);
     		kb.buildAll();
     		
     		KieContainer kContainer = ks.newKieContainer(kr.getDefaultReleaseId());

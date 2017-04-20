@@ -4,10 +4,9 @@ import com.sample.*;
 
 public class ServerClass {
 
-	public static TransactionDetails userdetail = new TransactionDetails();
-	
-	public static int fetchdetails(long cardnum, String city, int amount, int year, long time)
+	public int fetchdetails(long cardnum, String city, int amount, int year, long time)
 	{
+		TransactionDetails userdetail = new TransactionDetails();
 			userdetail.setCardNum(cardnum);
 			userdetail.setCity(city);
 			userdetail.setAmount(amount);

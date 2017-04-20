@@ -11,7 +11,7 @@ lock-on-active
 	then
 		transaction.setFScore(25);
         update(transaction)
-        System.out.println("fscore in diff.drl diff 1  "+transaction.getFScore());
+      //  System.out.println("fscore in diff.drl diff 1  "+transaction.getFScore());
 end
 
 rule "Diff 2"
@@ -22,7 +22,7 @@ lock-on-active
         //actions
         transaction.setFScore(35);
         update(transaction)
-        System.out.println("fscore in diff.drl diff 2  "+transaction.getFScore());
+     //   System.out.println("fscore in diff.drl diff 2  "+transaction.getFScore());
 
 end
 
@@ -34,7 +34,7 @@ lock-on-active
         //actions
         transaction.setFScore(45);
         update(transaction)
-        System.out.println("fscore in diff.drl diff 3  "+transaction.getFScore());
+    //    System.out.println("fscore in diff.drl diff 3  "+transaction.getFScore());
 
 end
 
@@ -43,8 +43,7 @@ lock-on-active
     when
 		transaction : TransactionDetails( fScore != 100 , amount > (4 * maxLimit) )
     then
-        //actions
 	    transaction.setFScore(100);
         update(transaction)
-        System.out.println("fscore in diff.drl diff 4  "+transaction.getFScore());
+      //  System.out.println("fscore in diff.drl diff 4  "+transaction.getFScore());
 end
