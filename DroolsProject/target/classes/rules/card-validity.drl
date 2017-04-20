@@ -1,0 +1,16 @@
+//created on: Apr 20, 2017
+package TransactionRules
+import com.sample.TransactionDetails;
+import com.sample.AccountDetails;
+
+rule "card-validity new"
+lock-on-active
+    when
+       atransaction : AccountDetails(cardNumber == -1);
+        transaction : TransactionDetails();
+    then
+        transaction.setFScore(100);
+       update(transaction)
+		System.out.println("Invalid Card Number");
+end
+

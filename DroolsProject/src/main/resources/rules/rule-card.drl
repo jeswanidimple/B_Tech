@@ -17,6 +17,7 @@ lock-on-active
         //conditions
         transaction : TransactionDetails(String.valueOf(cardNum).length() == 6)
     then
+    
         //actions
 		transaction.setFScore(0);
 		update(transaction)
@@ -26,7 +27,7 @@ end
 
 rule "Invalid Card Number"
 //no-loop
- lock-on-active 
+lock-on-active 
     //include attributes such as "salience" here...
     when
         //conditions
@@ -37,6 +38,6 @@ rule "Invalid Card Number"
         transaction.setFScore(100);
         update(transaction)
 		//	System.out.println("fscore in card.drl after rule is applied "+transaction.getFScore());
-		//	System.out.println("Invalid Card Number");
+			//System.out.println("Invalid Card Number");
 
 end

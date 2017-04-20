@@ -20,7 +20,6 @@ public class LoadTest {
 	public static void main(String[] args) throws IOException {
 		
 		InputStream in = LoadTest.class.getClassLoader().getResourceAsStream("sample.csv");
-//		InputStream in = FileReader.class.getResourceAsStream("C:\\Users\\arush\\Desktop\\sample.csv");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		
 		CyclicBarrier barrier = new CyclicBarrier(100);
