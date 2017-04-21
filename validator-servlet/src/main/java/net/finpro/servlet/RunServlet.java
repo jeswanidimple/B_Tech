@@ -32,23 +32,21 @@ public class RunServlet extends HttpServlet {
 	
 		String time = request.getParameter("time");
 		long turning = Long.parseLong(time);
-	//	System.out.println(time);
-		
-		/*PrintWriter writer = response.getWriter();
-		htmlStr = "<html><head><title>Load Test </title></head>";
-		htmlStr += "<body>"; 
-		htmlStr += "<table border=\"1\" bordercolor=\"#000000\">";
-		htmlStr += "<tr><td><b>CardNumber</b></td><td><b>Amount</b></td><td><b>City</b></td></td><td><b>Year</b></td></td><td><b>FraudRate</b></td></tr>";
-*/		
-		if (turning == 0)
+	
+		if (turning == 0){
 			LoadTest.main(null);
+			//System.out.println("hello");
+			}
 		
 		else {
 			String cardnum = request.getParameter("cardnum");
 			String city = request.getParameter("city");
+			String pin = request.getParameter("pin");
+			String name = request.getParameter("name");
 			String amount = request.getParameter("amount");
-			String year = request.getParameter("year");	    
-			int FRate = serverClass.fetchdetails(Long.parseLong(cardnum),city,Integer.parseInt(amount),Integer.parseInt(year),turning);
+			String expmon = request.getParameter("expmon");	
+			String expyear = request.getParameter("expyear");
+			int FRate = serverClass.fetchdetails(Long.parseLong(cardnum),city,Integer.parseInt(amount),Integer.parseInt(expyear),turning,name,Integer.parseInt(pin),Integer.parseInt(expmon));
 			 PrintWriter writer = response.getWriter();
 		        String htmlResponse = "<html>";
 		        htmlResponse += "<h2>Fraud Rate is: " + FRate +"</h2>";    

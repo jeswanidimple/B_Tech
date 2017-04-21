@@ -3,6 +3,9 @@ package TransactionRules
 import com.sample.TransactionDetails;
 import com.sample.AccountDetails;
 
+dialect "java"
+salience 50
+
 rule "card-validity new"
 lock-on-active
     when

@@ -9,8 +9,11 @@ public class TransactionDetails {
 	private String city;
 	private int amount;
 	private int maxLimit;
-	private int year;
 	private int fScore;
+	private String name;
+	private int expmon;
+	private int expyear;
+	private int pin;
 	public static String MetroCities[] = {"mumbai","pune","banglore","delhi","kolkata","guwhati","chennai"};
 
     public String getCity() {
@@ -18,6 +21,12 @@ public class TransactionDetails {
     }
     public void setCity(String city) {
     	this.city = city;
+    }
+    public String getName() {
+    	return name;
+    }
+    public void setName(String name) {
+    	this.name = name;
     }
     
     public long getCardNum() {
@@ -44,12 +53,25 @@ public class TransactionDetails {
     public void setMaxLimit(int maxLimit) {
     	this.maxLimit = maxLimit;
     }
-    public int getYear() {
-    	return year;
+    public int getExpyear() {
+    	return expyear;
     }
-    public void setYear(int year) {
-    	this.year = year;
+    public void setExpyear(int expyear) {
+    	this.expyear = expyear;
     }
+    public int getExpmon() {
+    	return expmon;
+    }
+    public void setExpmon(int expmon) {
+    	this.expmon = expmon;
+    }
+    public int getPin() {
+    	return pin;
+    }
+    public void setPin(int pin) {
+    	this.pin = pin;
+    }
+    
     public int getFScore() {
     	return fScore;
     }

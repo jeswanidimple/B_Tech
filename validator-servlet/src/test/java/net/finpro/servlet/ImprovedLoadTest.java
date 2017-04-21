@@ -1,4 +1,4 @@
-package net.finpro.servlet;
+/*package net.finpro.servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,3 +39,4 @@ public class ImprovedLoadTest {
 	}
 
 }
+*/

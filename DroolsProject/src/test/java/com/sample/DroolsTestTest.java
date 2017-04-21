@@ -1,6 +1,6 @@
 /**
  * 
- */
+ *//*
 package com.sample;
 
 import static org.junit.Assert.*;
@@ -9,15 +9,15 @@ import java.util.Date;
 
 import org.junit.Test;
 
-/**
+*//**
  * @author vj
  *
- */
+ *//*
 public class DroolsTestTest {
 
-	/**
+	*//**
 	 * Test method for {@link com.sample.DroolsTest#RunDrools(com.sample.TransactionDetails)}.
-	 */
+	 *//*
 	@Test
 	public void testRunDrools() {
 		Date date = new Date();
@@ -38,3 +38,4 @@ public class DroolsTestTest {
 	}
 
 }
+*/

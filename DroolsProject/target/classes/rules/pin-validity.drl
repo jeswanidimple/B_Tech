@@ -2,18 +2,17 @@
 package TransactionRules
 import com.sample.TransactionDetails;
 import com.sample.AccountDetails;
-
 dialect "java"
-salience 50
+salience 30
 
-rule "card-validity new"
+rule "pin-validity"
 lock-on-active
     when
-       atransaction : AccountDetails(cardNumber == -1);
-        transaction : TransactionDetails();
+        atransaction : AccountDetails(p : pin);
+        transaction : TransactionDetails(pin != p);
     then
         transaction.setFScore(100);
        update(transaction)
-		System.out.println("Invalid Card Number");
-end
+		System.out.println("Invalid Pin Name");
 
+end

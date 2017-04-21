@@ -18,13 +18,18 @@ public class ApplyDrools {
 				KieServices ks = KieServices.Factory.get();
 				KieFileSystem kfs = ks.newKieFileSystem();
 				KieRepository kr = ks.getRepository();
+				int pin = userinfo.getPin();
+				int len = String.valueOf(pin).length();
+					
+				AccountDetails actualdetail = new ReadFile().ReadCsv(userinfo.getCardNum(), len);
 				
-				AccountDetails actualdetail = new ReadFile().ReadCsv(userinfo.getCardNum());
-		//		kfs.write(ResourceFactory.newClassPathResource("rules/rule-city.drl", this.getClass()));
-		//		kfs.write(ResourceFactory.newClassPathResource("rules/rule-year.drl", this.getClass()));
 				kfs.write(ResourceFactory.newClassPathResource("rules/card-validity.drl", this.getClass()));
-			//	kfs.write(ResourceFactory.newClassPathResource("rules/rule-time.drl", this.getClass()));
-			//	kfs.write(ResourceFactory.newClassPathResource("rules/rule-diff.drl", this.getClass()));
+				kfs.write(ResourceFactory.newClassPathResource("rules/expiry-validity.drl", this.getClass()));
+				kfs.write(ResourceFactory.newClassPathResource("rules/pin-validity.drl", this.getClass()));
+				kfs.write(ResourceFactory.newClassPathResource("rules/rule-city.drl", this.getClass()));
+				kfs.write(ResourceFactory.newClassPathResource("rules/rule-diff.drl", this.getClass()));
+				kfs.write(ResourceFactory.newClassPathResource("rules/rule-time.drl", this.getClass()));
+				kfs.write(ResourceFactory.newClassPathResource("rules/name-validity.drl", this.getClass()));
 				
 				KieBuilder kb = ks.newKieBuilder(kfs);
 	    		kb.buildAll();

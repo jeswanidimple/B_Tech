@@ -5,7 +5,6 @@ public class AccountDetails {
 	private String name;
 	private int expMonth;
 	private int expYear;
-	private int cvv;
 	private int pin;
 	
 	public long getCardNumber() {
@@ -31,12 +30,6 @@ public class AccountDetails {
     }
     public void setExpYear(int expYear) {
     	this.expYear = expYear;
-    }
-    public int getCvv() {
-    	return cvv;
-    }
-    public void setCvv(int cvv) {
-    	this.cvv = cvv;
     }
     public int getPin() {
     	return pin;

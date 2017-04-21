@@ -15,7 +15,6 @@ lock-on-active
         transaction : TransactionDetails(fScore != 100, new Date().getTime() >= (time + 30000))
     then
         //actions
-       // modify(transaction)  {setFScore(0)};
        transaction.setFScore(100);
        update(transaction)
     //   System.out.println("fscore in time.drl after rule is applied "+transaction.getFScore());

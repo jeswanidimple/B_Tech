@@ -4,16 +4,17 @@ import com.sample.TransactionDetails;
 import com.sample.AccountDetails;
 
 dialect "java"
-salience 50
+salience 45
 
-rule "card-validity new"
+rule "name-validity"
 lock-on-active
     when
-       atransaction : AccountDetails(cardNumber == -1);
-        transaction : TransactionDetails();
+        atransaction : AccountDetails(n : name);
+        transaction : TransactionDetails(name != n);
     then
         transaction.setFScore(100);
        update(transaction)
-		System.out.println("Invalid Card Number");
+		System.out.println("Invalid Card Name");
+
 end
 

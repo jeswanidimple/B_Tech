@@ -1,0 +1,32 @@
+//created on: Apr 20, 2017
+package TransactionRules
+import com.sample.TransactionDetails;
+import com.sample.AccountDetails;
+dialect "java"
+salience 40
+
+rule "month-validity"
+lock-on-active
+    when
+        atransaction : AccountDetails(mon : expMonth);
+        transaction : TransactionDetails(expmon != mon);
+    then
+        transaction.setFScore(100);
+       update(transaction)
+		System.out.println("Invalid Month Name");
+
+end
+
+rule "year-validity"
+lock-on-active
+    when
+        atransaction : AccountDetails(year : expYear);
+        transaction : TransactionDetails(expyear != year);
+    then
+        transaction.setFScore(100);
+       update(transaction)
+		System.out.println("Invalid Year Name");
+
+end
+
+
